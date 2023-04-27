@@ -35,10 +35,10 @@ public class Personatges {
     protected void calculaEstadistiquesSecundaries(){
         int WPOW = arma.getWPOW();
         int WVEL = arma.getWVEL();
-        ps = CON + FOR;
-        pd = (FOR + WPOW) / 4;
-        pa = INT + SOR + WVEL;
-        pe = VEL + SOR + INT;   
+        PS = CON + FOR;
+        PD = (FOR + WPOW) / 4;
+        PA = INT + SOR + WVEL;
+        PE = VEL + SOR + INT;   
     }
     
     public void setFOR(int FOR) {
