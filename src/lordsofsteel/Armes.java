@@ -15,7 +15,22 @@ public class Armes {
     protected int WVEL; 
 
 
-    public Armes(String tipus, int WPOW, int WVEL){
+    public Armes(String tipus){
+        this.tipus = tipus;
+        switch (tipus){
+            case "Daga":
+                this.WPOW = 5;
+                this.WVEL = 15;
+            break;
+            case "Espasa":
+                this.WPOW = 10;
+                this.WVEL = 10;
+            break;
+            case "Martell":
+                this.WPOW = 15;
+                this.WVEL = 5;
+            break;
+        }
         
     }
     

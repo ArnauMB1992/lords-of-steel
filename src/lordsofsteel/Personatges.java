@@ -23,12 +23,14 @@ public class Personatges {
     protected int PA; 
     protected int PE;
     
-    public Personatges (int FOR, int CON, int VEL, int INT, int SOR){
+    public Personatges (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         this.FOR = FOR;
         this.CON = CON;
         this.VEL = VEL;
         this.INT = INT;
         this.SOR = SOR;
+        this.arma = arma;
+        
         calculaEstadistiquesSecundaries();
     }
     

@@ -10,7 +10,7 @@ package lordsofsteel;
  */
 public class Maia extends Personatges{
     
-    public Maia (int FOR, int CON, int VEL, int INT, int SOR){
-        super(FOR, CON, VEL, INT, SOR);
+    public Maia (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+        super(FOR, CON, VEL, INT, SOR, arma);
     }
 }

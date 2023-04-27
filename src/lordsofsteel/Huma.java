@@ -10,7 +10,7 @@ package lordsofsteel;
  */
 public class Huma extends Personatges{
     
-    public Huma (int FOR, int CON, int VEL, int INT, int SOR){
-        super(FOR, CON, VEL, INT, SOR);
+    public Huma (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+        super(FOR, CON, VEL, INT, SOR, arma);
     }
 }
