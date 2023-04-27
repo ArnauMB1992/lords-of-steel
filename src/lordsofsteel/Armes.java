@@ -14,8 +14,33 @@ public class Armes {
     protected int WPOW;
     protected int WVEL; 
 
+
     public Armes(String tipus, int WPOW, int WVEL){
         
+    }
+    
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
+    }
+
+    public void setWPOW(int WPOW) {
+        this.WPOW = WPOW;
+    }
+
+    public void setWVEL(int WVEL) {
+        this.WVEL = WVEL;
+    }
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public int getWPOW() {
+        return WPOW;
+    }
+
+    public int getWVEL() {
+        return WVEL;
     }
     
 }
