@@ -29,7 +29,7 @@ public class Personatges {
         this.VEL = VEL;
         this.INT = INT;
         this.SOR = SOR;
-        
+        calculaEstadistiquesSecundaries();
     }
     
     protected void calculaEstadistiquesSecundaries(){
