@@ -13,4 +13,9 @@ public class Nan extends Personatges{
     public Nan (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(FOR, CON, VEL, INT, SOR, arma);
     }
+    @Override
+     protected void calculaEstadistiquesSecundaries(){
+         super.calculaEstadistiquesSecundaries();
+         PD = (FOR+WPOW+CON)/4;
+     }
 }

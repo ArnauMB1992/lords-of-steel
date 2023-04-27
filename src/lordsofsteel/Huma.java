@@ -13,4 +13,11 @@ public class Huma extends Personatges{
     public Huma (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(FOR, CON, VEL, INT, SOR, arma);
     }
+    @Override
+    protected void calculaEstadistiquesSecundaries(){
+        super.calculaEstadistiquesSecundaries();
+        PS = CON+FOR+INT;
+    }
+      
+    
 }
