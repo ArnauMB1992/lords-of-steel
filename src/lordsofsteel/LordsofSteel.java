@@ -80,47 +80,31 @@ public class LordsofSteel {
         public static void iniciarCombar(ArrayList<Personatge> Personatges){
             
             boolean[] seleccionat = new boolean[Personatges.size()];
+            Personatge[] lluitadors = new Personatge[2];
             
-            for(int i = 0; i<Personatges.size(); i++){
-            /*for(Personatges p: personatges)*/
-                String tipus = "";
-                if(Personatges.get(i) instanceof Nan)
-                    tipus = "Nan";
-                else if(Personatges.get(i) instanceof Mitja)
-                    tipus = "Mitja";
-                else if(Personatges.get(i) instanceof Maia)
-                    tipus = "Maia";
-                else if(Personatges.get(i) instanceof Huma)
-                    tipus = "Huma";
-                        
-                System.out.printf("%d %s (%s)\n",(i+1),Personatges.get(i).getNOM(),tipus);            
-            }
+            for(int selec = 1; selec >=2; selec++){
+                for(int i = 0; i<Personatges.size(); i++){
+                /*for(Personatges p: personatges)*/
+                    String tipus = "";
+                    if(Personatges.get(i) instanceof Nan)
+                        tipus = "Nan";
+                    else if(Personatges.get(i) instanceof Mitja)
+                        tipus = "Mitja";
+                    else if(Personatges.get(i) instanceof Maia)
+                        tipus = "Maia";
+                    else if(Personatges.get(i) instanceof Huma)
+                        tipus = "Huma";
+
+                    System.out.printf("%d %s (%s)\n",(i+1),Personatges.get(i).getNOM(),tipus);            
+                }
            
-            System.out.println("\nTria un Personatge:");
+            System.out.println("\nTria un Personatge "+selec+": ");
             int opcio = sc.nextInt();
             seleccionat[opcio-1]=true;
+            lluitadors[selec-1]=Personatges.get(opcio-1);
             System.out.println("Personatge triat " + Personatges.get(opcio-1).getNOM());
-            
-            for(int i = 0; i<Personatges.size(); i++){
-                if(!seleccionat[i]){
-                String tipus = "";
-                if(Personatges.get(i) instanceof Nan)
-                    tipus = "Nan";
-                else if(Personatges.get(i) instanceof Mitja)
-                    tipus = "Mitja";
-                else if(Personatges.get(i) instanceof Maia)
-                    tipus = "Maia";
-                else if(Personatges.get(i) instanceof Huma)
-                    tipus = "Huma";
-                        
-                System.out.printf("%d %s (%s)\n",(i+1),Personatges.get(i).getNOM(),tipus);     
-                }
             }
-            
-            System.out.println("\nTria un Personatge 2:");
-            int opcio2 = sc.nextInt();
-            seleccionat[opcio2-1]=true;
-            System.out.println("Personatge triat " + Personatges.get(opcio-1).getNOM());
+
             
         }
     
