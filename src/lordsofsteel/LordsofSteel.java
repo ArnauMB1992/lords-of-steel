@@ -4,6 +4,8 @@
  */
 package lordsofsteel;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ArnauMB
@@ -24,7 +26,14 @@ public class LordsofSteel {
         Mitja Mi1 = new Mitja (9,7, 7,15,16,new Armes("Martell"));
         Maia Ma1 = new Maia (7,9, 12,15,17,new Armes("Daga"));
         
-        Personatge[] Personatges = new Personatge[4];
+        /*Personatge[] Personatges = new Personatge[4];
+        Personatges[0]=n1;
+        Personatges[1]=h1;
+        Personatges[2]=Mi1;
+        Personatges[3]=Ma1;*/
+        
+        ArrayList<Personatge> Personatges = new ArrayList<Personatge>();
+        
         
         
         System.out.println("Punts de dany de n1: " + n1.getPD());
