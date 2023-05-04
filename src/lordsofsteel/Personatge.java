@@ -26,7 +26,10 @@ public class Personatge {
     protected int WPOW;
     protected int WVEL;
     
-    public Personatge (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+    protected String NOM;
+
+    
+    public Personatge (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         this.FOR = FOR;
         this.CON = CON;
         this.VEL = VEL;
@@ -124,5 +127,28 @@ public class Personatge {
 
     public int getPE() {
         return PE;
+    }
+        public void setWPOW(int WPOW) {
+        this.WPOW = WPOW;
+    }
+
+    public void setWVEL(int WVEL) {
+        this.WVEL = WVEL;
+    }
+
+    public void setNOM(String NOM) {
+        this.NOM = NOM;
+    }
+
+    public int getWPOW() {
+        return WPOW;
+    }
+
+    public int getWVEL() {
+        return WVEL;
+    }
+
+    public String getNOM() {
+        return NOM;
     }
 }

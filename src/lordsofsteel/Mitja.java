@@ -12,7 +12,7 @@ package lordsofsteel;
  */
 public class Mitja extends Personatge{
     
-    public Mitja (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
-        super(FOR, CON, VEL, INT, SOR, arma);
+    public Mitja (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+        super(NOM, FOR, CON, VEL, INT, SOR, arma);
     }
 }
