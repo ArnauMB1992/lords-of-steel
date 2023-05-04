@@ -23,6 +23,9 @@ public class Personatges {
     protected int PA; 
     protected int PE;
     
+    protected int WPOW;
+    protected int WVEL;
+    
     public Personatges (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         this.FOR = FOR;
         this.CON = CON;
@@ -35,8 +38,8 @@ public class Personatges {
     }
     
     protected void calculaEstadistiquesSecundaries(){
-        int WPOW = arma.getWPOW();
-        int WVEL = arma.getWVEL();
+        WPOW = arma.getWPOW();
+        WVEL = arma.getWVEL();
         PS = CON + FOR;
         PD = (FOR + WPOW) / 4;
         PA = INT + SOR + WVEL;
