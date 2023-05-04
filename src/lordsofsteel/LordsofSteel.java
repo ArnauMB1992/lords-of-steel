@@ -15,14 +15,18 @@ public class LordsofSteel {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-                
-        //Arma arma = new Arma("Daga");
-        Nan n1 = new Nan(8,6, 13,16,16,new Armes("Daga"));
-        
         // Personatge normal: (8+5)/4 = 3
         // Nan: (8+6+5)/4 = 4
         // Nan: ps = (8+6) = 14
+                //Arma arma = new Arma("Daga");
+        Nan n1 = new Nan(8,6, 13,16,16,new Armes("Daga"));
+        Huma h1 = new Huma (13,16, 6,10,6,new Armes("Espasa"));
+        Mitja Mi1 = new Mitja (9,7, 7,15,16,new Armes("Martell"));
+        Maia Ma1 = new Maia (7,9, 12,15,17,new Armes("Daga"));
+        
+        Personatge[] Personatges = new Personatge[4];
+        
+        
         System.out.println("Punts de dany de n1: " + n1.getPD());
         System.out.println("Punts de salut de n1: " + n1.getPS());
 

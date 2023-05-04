@@ -8,7 +8,7 @@ package lordsofsteel;
  *
  * @author ArnauMB
  */
-public class Personatges {
+public class Personatge {
     
     protected int FOR; 
     protected int CON;
@@ -26,7 +26,7 @@ public class Personatges {
     protected int WPOW;
     protected int WVEL;
     
-    public Personatges (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+    public Personatge (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         this.FOR = FOR;
         this.CON = CON;
         this.VEL = VEL;

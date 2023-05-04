@@ -8,7 +8,7 @@ package lordsofsteel;
  *
  * @author ArnauMB
  */
-public class Maia extends Personatges{
+public class Maia extends Personatge{
     
     public Maia (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(FOR, CON, VEL, INT, SOR, arma);

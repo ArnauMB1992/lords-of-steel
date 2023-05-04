@@ -32,7 +32,7 @@ public class Armes {
             break;
         }
         
-    }
+    }   
     
     public void setTipus(String tipus) {
         this.tipus = tipus;

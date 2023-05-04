@@ -8,7 +8,7 @@ package lordsofsteel;
  *
  * @author ArnauMB
  */
-public class Nan extends Personatges{
+public class Nan extends Personatge{
     
     public Nan (int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(FOR, CON, VEL, INT, SOR, arma);
