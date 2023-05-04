@@ -104,8 +104,30 @@ public class LordsofSteel {
             lluitadors[selec-1]=Personatges.get(opcio-1);
             System.out.println("Personatge triat " + Personatges.get(opcio-1).getNOM());
             }
-
             
+        //INICI COMBAT
+        Personatge atacant = lluitadors[0];
+        Personatge defensor = lluitadors[1];
+        
+        //al final de cada ronda intercambio
+        Personatge aux = atacant;
+        atacant = defensor;
+        defensor = aux;
+        
+        Dau dau1 = new Dau();
+        Dau dau2 = new Dau();
+        Dau dau3 = new Dau();
+        
+        int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+            System.out.println("Valor :"+valor);
+        
+        if(valor<=atacant.getPA()){
+            valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+            if(valor>defensor.getPE()){
+                defensor.setPS(defensor.getPS()- atacant.getPD());
+            }
+        }
+        
         }
     
 }
