@@ -30,6 +30,7 @@ public class Personatge {
 
     
     public Personatge (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+        this.NOM = NOM;
         this.FOR = FOR;
         this.CON = CON;
         this.VEL = VEL;
