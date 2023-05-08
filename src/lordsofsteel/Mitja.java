@@ -15,4 +15,9 @@ public class Mitja extends Personatge{
     public Mitja (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(NOM, FOR, CON, VEL, INT, SOR, arma);
     }
+        @Override
+     protected void calculaEstadistiquesSecundaries(){
+         super.calculaEstadistiquesSecundaries();
+         PE = VEL+SOR+INT+FOR;
+     }
 }
