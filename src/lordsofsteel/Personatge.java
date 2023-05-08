@@ -54,6 +54,12 @@ public class Personatge {
             this.PS = (int)(this.PS*1.10);
     }
     
+    public void metodo(Dau... d){
+        d[0].llencar();
+        d[1].llencar();
+        d[2].llencar();
+    }    
+        
     public void setFOR(int FOR) {
         this.FOR = FOR;
     }
