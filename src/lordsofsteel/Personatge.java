@@ -50,6 +50,10 @@ public class Personatge {
         PE = VEL + SOR + INT;   
     }
     
+        public void restaurarPS(){
+            this.PS = (int)(this.PS*1.10);
+    }
+    
     public void setFOR(int FOR) {
         this.FOR = FOR;
     }
