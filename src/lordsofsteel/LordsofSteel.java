@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author ArnauMB
  */
 public class LordsofSteel {
-
+///----prueba gitHub
     static Scanner sc = new Scanner(System.in);
     /**
      * @param args the command line arguments
