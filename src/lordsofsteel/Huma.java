@@ -17,5 +17,6 @@ public class Huma extends Personatge{
     protected void calculaEstadistiquesSecundaries(){
         super.calculaEstadistiquesSecundaries();
         PS = CON+FOR+INT;
+        
     }
 }

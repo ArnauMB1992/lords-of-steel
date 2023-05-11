@@ -58,6 +58,7 @@ public class LordsofSteel {
         // Només hem d'arribar aquí si estem segurs
         // que l'opció triada és un enter entre 1-5
         int opcio = Integer.parseInt(entrada);
+           
         
         switch (opcio) {
             case 1:
