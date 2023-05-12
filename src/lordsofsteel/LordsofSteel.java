@@ -82,6 +82,7 @@ public class LordsofSteel {
         
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
+        sc.nextLine();
         int fuerza, constitucion, velocidad, inteligencia, suerte, totalPunts;
         do{
             System.out.println("Reparteix 60 punts entre les estadístiques primàries:");
@@ -107,8 +108,13 @@ public class LordsofSteel {
         switch (categoria) {
             case 1:
                 {
-                    Nan personatge = new Nan(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
-                    personatges.add(personatge);
+                    if(devocion==1){
+                        NanOrdre personatge = new NanOrdre(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }else{
+                        NanCaos personatge = new NanCaos(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }
                     break;
                 }
             case 2:
