@@ -24,7 +24,8 @@ public class LordsofSteel {
         personatges.add(h1);
         personatges.add(mi1);
         personatges.add(ma1);
-
+        int opcio;
+        do{
         /* Menú principal */
         System.out.println("");
         System.out.println("** MENÚ PRINCIPAL **");
@@ -40,17 +41,17 @@ public class LordsofSteel {
         
         // Només hem d'arribar aquí si estem segurs
         // que l'opció triada és un enter entre 1-5
-        int opcio = Integer.parseInt(entrada);
+        opcio = Integer.parseInt(entrada);
               
         switch (opcio) {
             case 1:
-                //agregaPersonatge();
+//                agregaPersonatge();
                 break;
             case 2:
-                //borrarPersonatge();
+//                borrarPersonatge();
                 break;
             case 3:
-                //editaPersonatge();
+//                editaPersonatge();
                 break;
             case 4:
                 iniciarCombat(personatges);
@@ -58,10 +59,12 @@ public class LordsofSteel {
             case 5:
                 System.out.println("¡Ha triat sortit!");
                 break;
+            default:
+                System.out.println("Opcio invalida.");
         }
-        
-        
+        }while(opcio !=5);    
     }
+    
     
     
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
