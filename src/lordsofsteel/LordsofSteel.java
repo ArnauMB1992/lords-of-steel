@@ -45,13 +45,13 @@ public class LordsofSteel {
               
         switch (opcio) {
             case 1:
-//                agregaPersonatge();
+                agregaPersonatge();
                 break;
             case 2:
-//                borrarPersonatge();
+                borrarPersonatge();
                 break;
             case 3:
-//                editaPersonatge();
+                editaPersonatge();
                 break;
             case 4:
                 iniciarCombat(personatges);
@@ -65,9 +65,55 @@ public class LordsofSteel {
         }while(opcio !=5);    
     }
     
+    private static void agregaPersonatge(){
+        System.out.println("Introdueix el nom del personatge: ");
+        String nom=sc.nextLine();
+        int fuerza, destreza, constitucion, agilidad, totalPunts;
+        do{
+            System.out.println("Reparteix 60 punts entre les estadístiques primàries:");
+            System.out.println("Força: ");
+            fuerza = sc.nextInt();
+            System.out.println("Destresa: ");
+            destreza = sc.nextInt();
+            System.out.println("Constitució: ");
+            constitucion = sc.nextInt();
+            System.out.println("Agilitat: ");
+            agilidad = sc.nextInt();
+            
+            totalPunts = fuerza+destreza+constitucion+agilidad;
+            if (totalPunts!=60){
+                System.out.println("Assegura't de repartir un total de 60 punts entre les estadístiques primàries: força, destresa, constitució i agilitat.");                
+            }
+        }while(totalPunts!=60);
+        Armes arma;
+            System.out.println("Introdueix el nom de l'arma: ");
+            String nomArma = sc.nextLine();
+        /*mirar de guaradr el personaje, caos o orden*/
+    }
     
+    private static void borrarPersonatge(ArrayList<Personatge> personatges){
+        System.out.println("----- LLISTA DE PERSONATGES DISPONIBLES -----");
+        for (int i = 0; i < personatges.size(); ++i) {
+            System.out.println((i+1)+ ". "+ personatges.get(i).getNOM());            
+        }
+        boolean valido = false;
+        do{
+            System.out.println("-----------------------------------");
+            System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
+            int seleccio = sc.nextInt() -1;
+
+            if(seleccio>=0 && seleccio<personatges.size()){
+                personatges.remove(seleccio);
+                System.out.println("S'ha eliminat el personatge amb èxit.");
+                valido=true;
+            } else {
+                System.out.println("Ho sento, el número de personatge no és vàlid. Si us plau, seleccioneu un número de personatge vàlid per continuar.");
+            }
+        } while(valido);
+        System.out.println("");
+    }
     
-    public static void iniciarCombat(ArrayList<Personatge> personatges) {
+    private static void iniciarCombat(ArrayList<Personatge> personatges) {
         
         boolean[] seleccionats = new boolean[personatges.size()];
         Personatge[] lluitadors = new Personatge[2];
@@ -142,6 +188,7 @@ public class LordsofSteel {
         perdedor.restaurarPS();
         /*revisar*/
         /*mirar que los datos interoducidos sean correctos*/
+        
         
     }
 
