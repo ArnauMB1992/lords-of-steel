@@ -45,7 +45,7 @@ public class LordsofSteel {
               
         switch (opcio) {
             case 1:
-                agregaPersonatge();
+                agregaPersonatge(personatges);
                 break;
             case 2:
                 borrarPersonatge(personatges);
@@ -65,7 +65,8 @@ public class LordsofSteel {
         }while(opcio !=5);    
     }
     
-    private static void agregaPersonatge(){
+    private static void agregaPersonatge(ArrayList<Personatge> personatges){
+        
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
         int fuerza, constitucion, velocidad, inteligencia, suerte, totalPunts;
@@ -87,9 +88,11 @@ public class LordsofSteel {
                 System.out.println("Assegura't de repartir un total de 60 punts entre les estadístiques primàries: força, destresa, constitució i agilitat.");                
             }
         }while(totalPunts!=60);
-        Armes arma;
             System.out.println("Introdueix el nom de l'arma: ");
             String nomArma = sc.nextLine();
+            
+            Personatge personatge1 = new Personatge(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+            personatges.add(personatge1);
         /*mirar de guaradr el personaje, caos o orden*/
     }
     
