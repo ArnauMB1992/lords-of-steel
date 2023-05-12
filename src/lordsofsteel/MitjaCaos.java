@@ -8,9 +8,9 @@ package lordsofsteel;
  *
  * @author ArnauMB
  */
-public class NanCaos extends Nan implements Caos {
+public class MitjaCaos extends Mitja implements Caos {
 
-    public NanCaos(String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma) {
+    public MitjaCaos(String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma) {
         super(NOM, FOR, CON, VEL, INT, SOR, arma);
     }
 

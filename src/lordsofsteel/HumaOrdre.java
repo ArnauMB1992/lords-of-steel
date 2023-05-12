@@ -8,13 +8,13 @@ package lordsofsteel;
  *
  * @author ArnauMB
  */
-public class NanOrdre extends Nan implements Ordre{
+public class HumaOrdre extends Huma implements Ordre{
         
-    public NanOrdre (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+    public HumaOrdre (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(NOM, FOR, CON, VEL, INT, SOR, arma);
     }
         
-    @Override
+    
     public void restaurarPS(Personatge personatge){
         int puntSalutInicials = personatge.getCON()+personatge.getFOR();
         int puntSalut = personatge.getPS();

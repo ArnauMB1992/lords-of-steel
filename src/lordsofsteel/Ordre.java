@@ -9,5 +9,6 @@ package lordsofsteel;
  * @author ArnauMB
  */
 public interface Ordre {
-    public void restaurarPS();
+    
+    public void restaurarPS(Personatge personatge);
 }

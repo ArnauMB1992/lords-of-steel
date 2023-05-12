@@ -8,9 +8,9 @@ package lordsofsteel;
  *
  * @author ArnauMB
  */
-public class NanOrdre extends Nan implements Ordre{
+public class MitjaOrdre extends Mitja implements Ordre{
         
-    public NanOrdre (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
+    public MitjaOrdre (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         super(NOM, FOR, CON, VEL, INT, SOR, arma);
     }
         

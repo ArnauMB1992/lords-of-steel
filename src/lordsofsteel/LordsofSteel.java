@@ -118,21 +118,36 @@ public class LordsofSteel {
                     break;
                 }
             case 2:
-                {
-                    Huma personatge = new Huma(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                {   
+                    if(devocion==1){
+                        HumaOrdre personatge = new HumaOrdre(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
                     personatges.add(personatge);
+                    }else{
+                        HumaCaos personatge = new HumaCaos(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }
                     break;
                 }
             case 3:
                 {
-                    Mitja personatge = new Mitja(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
-                    personatges.add(personatge);
+                    if(devocion==1){
+                        MitjaOrdre personatge = new MitjaOrdre(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }else{
+                        MitjaCaos personatge = new MitjaCaos(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }
                     break;
                 }
             case 4:
-                {
-                    Maia personatge = new Maia(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
-                    personatges.add(personatge);
+                {   
+                    if(devocion==1){
+                        MaiaOrdre personatge = new MaiaOrdre(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }else{
+                        MaiaCaos personatge = new MaiaCaos(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                        personatges.add(personatge);
+                    }
                     break;
                 }
             default:
@@ -236,54 +251,53 @@ public class LordsofSteel {
             System.out.println("Personatge triat: " + 
                               personatges.get(opcio-1).getNOM());        
         }
-        
-        
-        // Inici combat
-        Personatge atacant  = lluitadors[0];
-        Personatge defensor = lluitadors[1];
-        
         Dau dau1 = new Dau();
         Dau dau2 = new Dau();
         Dau dau3 = new Dau();
-        
-        int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-        //System.out.println("Valor daus: " + valor);
-        
-        if (valor <= atacant.getPA()) { // Atacant ataca
-            valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-            if (valor > defensor.getPE()) { // No aconsegueix esquivar
-                defensor.setPS(defensor.getPS() - atacant.getPD());
+        Personatge atacant  = lluitadors[0];
+        Personatge defensor = lluitadors[1];
+        int restaurarPSatacant = atacant.getPS();
+        int restaurarPSdefensor = defensor.getPS();
+        while(true){           
+            if(dau1.llencar() + dau2.llencar() + dau3.llencar() <= atacant.getPA()){
+                System.out.println(atacant.getNOM()+" ha acertat l'atac");
+                if(dau1.llencar() + dau2.llencar() + dau3.llencar() <= defensor.getPE()){
+                    System.out.println(defensor.getNOM()+" ha lograt esquivar l'atac");
+                }else{
+                    int dany=atacant.getPD();
+                    defensor.restaPS(dany);
+                    System.out.println(defensor.getNOM()+" ha rebut "+dany+" punts de dany" );
+                }
+            }else{
+                System.out.println(atacant.getNOM()+" ha fallat l'atac");
+            }
+            Personatge aux = atacant;
+            atacant = defensor;
+            defensor = aux;
+            
+            if(atacant.getPS()<=0 || defensor.getPS()<=0){
+                Personatge ganador, perdedor;
+                if(defensor.getPS() <=0){
+                    ganador = atacant;
+                    perdedor = defensor;
+                }else{
+                    ganador = defensor;
+                    perdedor = atacant;
+                }
+                System.out.println("¡La batalla ha acabat!");
+                System.out.println("El guanyador es: "+ganador.getNOM());
+                System.out.println("------------------------");
+                
+                ganador.restaurarPS();
+                perdedor.restaurarPS();
+                
+                ganador.sumaPEX(perdedor.getPS());
+                if(ganador.pujaNivell()){
+                    ganador.recalculaEstadistiquesSecundaries();
+                }
+                break;
             }
         }
-        
-        // Final ronda
-        Personatge aux = atacant;
-        atacant  = defensor;
-        defensor = aux;
-        if (valor <= atacant.getPA()) { // Atacant ataca
-            valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-            if (valor > defensor.getPE()) { // No aconsegueix esquivar
-                defensor.setPS(defensor.getPS() - atacant.getPD());
-            }
-        }
-        
-        Personatge ganador, perdedor;
-        if(defensor.getPS() <=0){
-            ganador = atacant;
-            perdedor = defensor;
-        }else{
-            ganador = defensor;
-            perdedor = atacant;
-        }
-        System.out.println("¡La batalla ha acabat!");
-        System.out.println("El guanyador es: "+ganador.getNOM());
-        System.out.println("------------------------");
-        
-        ganador.restaurarPS();
-        perdedor.restaurarPS();
-        /*revisar*/
-        /*mirar que los datos interoducidos sean correctos*/
-        
         
     }
 
