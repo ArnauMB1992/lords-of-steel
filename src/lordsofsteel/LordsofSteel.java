@@ -66,6 +66,19 @@ public class LordsofSteel {
     }
     
     private static void agregaPersonatge(ArrayList<Personatge> personatges){
+        int categoria;
+        System.out.println("Introdueix la categoria del personatge: ");
+        System.out.println("1: Nan /n"
+                + "2: Humá /n"
+                + "3: Mitjà/n"
+                + "4: Maia");
+        categoria = sc.nextInt();
+        
+        int devocion;
+        System.out.println("Introdueix la devoció del personatge: ");
+        System.out.println("1: Ordre o 2: Caos");
+        devocion = sc.nextInt();
+        
         
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
@@ -90,9 +103,36 @@ public class LordsofSteel {
         }while(totalPunts!=60);
             System.out.println("Introdueix el nom de l'arma: ");
             String nomArma = sc.nextLine();
-            
-            Personatge personatge1 = new Personatge(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
-            personatges.add(personatge1);
+        
+        switch (categoria) {
+            case 1:
+                {
+                    Nan personatge = new Nan(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                    personatges.add(personatge);
+                    break;
+                }
+            case 2:
+                {
+                    Huma personatge = new Huma(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                    personatges.add(personatge);
+                    break;
+                }
+            case 3:
+                {
+                    Mitja personatge = new Mitja(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                    personatges.add(personatge);
+                    break;
+                }
+            case 4:
+                {
+                    Maia personatge = new Maia(nom,fuerza,constitucion, velocidad,inteligencia ,suerte,new Armes(nomArma));
+                    personatges.add(personatge);
+                    break;
+                }
+            default:
+                break;
+        }
+            System.out.println("S'ha afegit el personatge amb èxit.");
         /*mirar de guaradr el personaje, caos o orden*/
     }
     
