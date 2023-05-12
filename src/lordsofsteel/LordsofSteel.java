@@ -68,19 +68,21 @@ public class LordsofSteel {
     private static void agregaPersonatge(){
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
-        int fuerza, destreza, constitucion, agilidad, totalPunts;
+        int fuerza, constitucion, velocidad, inteligencia, suerte, totalPunts;
         do{
             System.out.println("Reparteix 60 punts entre les estadístiques primàries:");
             System.out.println("Força: ");
             fuerza = sc.nextInt();
-            System.out.println("Destresa: ");
-            destreza = sc.nextInt();
             System.out.println("Constitució: ");
             constitucion = sc.nextInt();
-            System.out.println("Agilitat: ");
-            agilidad = sc.nextInt();
+            System.out.println("Velocitat: ");
+            velocidad = sc.nextInt();
+            System.out.println("Intel·ligència: ");
+            inteligencia = sc.nextInt();
+            System.out.println("Sort: ");
+            suerte = sc.nextInt();
             
-            totalPunts = fuerza+destreza+constitucion+agilidad;
+            totalPunts = fuerza+constitucion+velocidad+inteligencia+suerte;
             if (totalPunts!=60){
                 System.out.println("Assegura't de repartir un total de 60 punts entre les estadístiques primàries: força, destresa, constitució i agilitat.");                
             }
@@ -126,23 +128,34 @@ public class LordsofSteel {
             Personatge personatge = personatges.get(seleccio);
             System.out.println("Estadístiques actuals del personatge:");
             System.out.println(personatge);
-            int newFuerza, newDestreza, newConstitucion, newAgilidad;
+            int newFuerza, newConstitucion, newVelocidad, newInteligencia, newSuerte;
             do{
                 System.out.println("Introdueix el nou valor de Força:");
                 newFuerza=sc.nextInt();
-                System.out.println("Introdueix el nou valor de Destresa:");
-                newDestreza=sc.nextInt();
                 System.out.println("Introdueix el nou valor de Constitució:");
                 newConstitucion=sc.nextInt();
-                System.out.println("Introdueix el nou valor de Agilitat:");
-                newAgilidad=sc.nextInt();
-            int totalPunts = newFuerza+newDestreza+newConstitucion+newAgilidad;
-            if (totalPunts <= 60){
+                System.out.println("Introdueix el nou valor de Velocitat:");
+                newVelocidad=sc.nextInt();
+                System.out.println("Introdueix el nou valor de Intel·ligència:");
+                newInteligencia=sc.nextInt();
+                System.out.println("Introdueix el nou valor de Sort:");
+                newSuerte=sc.nextInt();
+            int totalPunts = newFuerza+newConstitucion+newVelocidad+newInteligencia+newSuerte;
+            if(totalPunts <=60){    
                 valido = true;
             }else{
                 System.out.println("Ho sento, però el total de punts excedeix els punts disponibles. Si us plau, torna-ho a intentar distribuint els punts de manera que la suma total no superi el límit disponible.");
             }
             }while(valido);
+            
+            personatge.setFOR(newFuerza);
+            personatge.setCON(newConstitucion);
+            personatge.setVEL(newVelocidad);
+            personatge.setINT(newInteligencia);
+            personatge.setSOR(newSuerte);
+            
+            System.out.println("Les estadístiques del personatge s'han actualitzat amb èxit.");
+            System.out.println("");
         }
     }
     
