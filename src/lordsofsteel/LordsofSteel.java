@@ -51,7 +51,7 @@ public class LordsofSteel {
                 borrarPersonatge(personatges);
                 break;
             case 3:
-                editaPersonatge();
+                editaPersonatge(personatges);
                 break;
             case 4:
                 iniciarCombat(personatges);
@@ -96,9 +96,9 @@ public class LordsofSteel {
         for (int i = 0; i < personatges.size(); ++i) {
             System.out.println((i+1)+ ". "+ personatges.get(i).getNOM());            
         }
+        System.out.println("-----------------------------------");
         boolean valido = false;
         do{
-            System.out.println("-----------------------------------");
             System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
             int seleccio = sc.nextInt() -1;
 
@@ -111,6 +111,39 @@ public class LordsofSteel {
             }
         } while(valido);
         System.out.println("");
+    }
+    
+    private static void editaPersonatge(ArrayList<Personatge> personatges){
+        System.out.println("----- LLISTA DE PERSONATGES DISPONIBLES -----");
+        for (int i = 0; i < personatges.size(); ++i) {
+            System.out.println((i+1)+ ". "+ personatges.get(i).getNOM());            
+        }
+        System.out.println("-----------------------------------");
+        boolean valido = false;
+        System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
+        int seleccio = sc.nextInt() -1;
+        if(seleccio>=0 && seleccio<personatges.size()){
+            Personatge personatge = personatges.get(seleccio);
+            System.out.println("Estadístiques actuals del personatge:");
+            System.out.println(personatge);
+            int newFuerza, newDestreza, newConstitucion, newAgilidad;
+            do{
+                System.out.println("Introdueix el nou valor de Força:");
+                newFuerza=sc.nextInt();
+                System.out.println("Introdueix el nou valor de Destresa:");
+                newDestreza=sc.nextInt();
+                System.out.println("Introdueix el nou valor de Constitució:");
+                newConstitucion=sc.nextInt();
+                System.out.println("Introdueix el nou valor de Agilitat:");
+                newAgilidad=sc.nextInt();
+            int totalPunts = newFuerza+newDestreza+newConstitucion+newAgilidad;
+            if (totalPunts <= 60){
+                valido = true;
+            }else{
+                System.out.println("Ho sento, però el total de punts excedeix els punts disponibles. Si us plau, torna-ho a intentar distribuint els punts de manera que la suma total no superi el límit disponible.");
+            }
+            }while(valido);
+        }
     }
     
     private static void iniciarCombat(ArrayList<Personatge> personatges) {
