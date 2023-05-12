@@ -48,7 +48,7 @@ public class LordsofSteel {
                 agregaPersonatge();
                 break;
             case 2:
-                borrarPersonatge();
+                borrarPersonatge(personatges);
                 break;
             case 3:
                 editaPersonatge();
