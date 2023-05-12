@@ -44,13 +44,13 @@ public class LordsofSteel {
               
         switch (opcio) {
             case 1:
-                agregaPersonatge();
+                //agregaPersonatge();
                 break;
             case 2:
-                borrarPersonatge();
+                //borrarPersonatge();
                 break;
             case 3:
-                editaPersonatge();
+                //editaPersonatge();
                 break;
             case 4:
                 iniciarCombat(personatges);
@@ -138,6 +138,7 @@ public class LordsofSteel {
         ganador.restaurarPS();
         perdedor.restaurarPS();
         /*revisar*/
+        /*mirar que los datos interoducidos sean correctos*/
         
     }
 
