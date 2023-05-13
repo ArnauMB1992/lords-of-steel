@@ -264,10 +264,15 @@ public class LordsofSteel {
             int valor =  dau1.llencar() + dau2.llencar() + dau3.llencar();        
             System.out.println("Valor daus: " + valor);
             if (valor <= atacant.getPA()) { // Atacant ataca
+                System.out.println(atacant.getNOM()+" Ataca!");
                 valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-                if (valor > defensor.getPE()) { // No aconsegueix esquivar
+                if (valor <= defensor.getPE()) { // Aconsegueix esquivar
+                    System.out.println(defensor.getNOM()+" Esquiva!");
+                }else if(valor > defensor.getPE()){//no Aconsegueix esquivar
                     defensor.setPS(defensor.getPS() - atacant.getPD());
                 }
+            }else if(valor > atacant.getPA()){
+                System.out.println(atacant.getNOM()+" no Ataca!");
             }
             // Final ronda
             Personatge aux = atacant;
@@ -276,11 +281,23 @@ public class LordsofSteel {
             valor =  dau1.llencar() + dau2.llencar() + dau3.llencar();        
             System.out.println("Valor daus: " + valor);
             if (valor <= atacant.getPA()) { // Atacant ataca
+                System.out.println(atacant.getNOM()+" Ataca!");
                 valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-                System.out.println("Valor daus: " + valor);
-                if (valor > defensor.getPE()) { // No aconsegueix esquivar
+                if (valor <= defensor.getPE()) { // Aconsegueix esquivar
+                    System.out.println(defensor.getNOM()+" Esquiva!");
+                }else if(valor > defensor.getPE()){//no Aconsegueix esquivar
                     defensor.setPS(defensor.getPS() - atacant.getPD());
                 }
+            }else if(valor > atacant.getPA()){
+                System.out.println(atacant.getNOM()+" no Ataca!");
+            }
+            if(atacant.PS<=0){
+                System.out.println(defensor.getNOM()+" ha guañat.");
+                defensor.setPEX(atacant.getCON()+atacant.getFOR());
+                
+            }else if( defensor.PS<=0){
+                System.out.println(atacant.getNOM()+" ha guañat.");
+                atacant.setPEX(defensor.getCON()+defensor.getFOR());
             }
         }while(atacant.PS>=0 || defensor.PS>=0);
         atacant.setPS(atacant.getCON()+atacant.getFOR());

@@ -27,8 +27,8 @@ public class Personatge {
     protected int WVEL;
     
     protected String NOM;
-    protected int nivell;
-    protected int PEXP;
+    protected int NIV;
+    protected int PEX;
     
     public Personatge (String NOM, int FOR, int CON, int VEL, int INT, int SOR, Armes arma){
         this.NOM = NOM;
@@ -38,8 +38,8 @@ public class Personatge {
         this.INT = INT;
         this.SOR = SOR;
         this.arma = arma;
-        this.nivell=0;
-        this.PEXP=0;
+        this.NIV=0;
+        this.PEX=0;
         calculaEstadistiquesSecundaries();
     }
     
@@ -53,11 +53,11 @@ public class Personatge {
     }
     
     public boolean pujaNivell(){
-        int nivelActual = this.nivell;
+        int nivelActual = this.NIV;
         int puntosExperienciaActual = this.PE;
         int[] umbralesExperiencia = {100, 200, 500, 1000, 2000};
         if (puntosExperienciaActual >= umbralesExperiencia[nivelActual]) {
-        this.nivell++;
+        this.NIV++;
         this.PE -= umbralesExperiencia[nivelActual];
         return true;
     }
@@ -69,23 +69,8 @@ public class Personatge {
         this.PD++;
         this.PA++;
         this.PE++;
-    }
+    }  
     
-    public void restaurarPS (){
-        this.PS = CON + FOR;
-    }
-        
-    public void restaPS(int cuantitat){
-        this.PS -= cuantitat;
-        if(this.PS<0){
-            this.PS =0;
-        }
-    }    
-    
-    public void sumaPEX(int cuantitat){
-        this.PE+= cuantitat;
-    }    
-        
     public void setFOR(int FOR) {
         this.FOR = FOR;
     }
@@ -188,4 +173,22 @@ public class Personatge {
     public String getNOM() {
         return NOM;
     }
+
+    public int getNIV() {
+        return NIV;
+    }
+
+    public void setNIV(int NIV) {
+        this.NIV = NIV;
+    }
+
+    public int getPEX() {
+        return PEX;
+    }
+
+    public void setPEX(int PEX) {
+        this.PEX = PEX;
+    }
+    
+    
 }
