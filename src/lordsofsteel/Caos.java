@@ -9,5 +9,5 @@ package lordsofsteel;
  * @author ArnauMB
  */
 public interface Caos {
-    public boolean atacPAReduida(int metodoDaus);
+    public boolean atacPAReduida(int valor);
 }
