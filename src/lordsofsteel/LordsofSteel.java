@@ -294,10 +294,11 @@ public class LordsofSteel {
             if(atacant.PS<=0){
                 System.out.println(defensor.getNOM()+" ha guañat.");
                 defensor.setPEX(atacant.getCON()+atacant.getFOR());
-                
+                defensor.pujaNivell();
             }else if( defensor.PS<=0){
                 System.out.println(atacant.getNOM()+" ha guañat.");
                 atacant.setPEX(defensor.getCON()+defensor.getFOR());
+                atacant.pujaNivell();
             }
         }while(atacant.PS>=0 || defensor.PS>=0);
         atacant.setPS(atacant.getCON()+atacant.getFOR());

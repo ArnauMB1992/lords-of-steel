@@ -58,7 +58,7 @@ public class Personatge {
         int[] umbralesExperiencia = {100, 200, 500, 1000, 2000};
         if (puntosExperienciaActual >= umbralesExperiencia[nivelActual]) {
         this.NIV++;
-        this.PE -= umbralesExperiencia[nivelActual];
+        recalculaEstadistiquesSecundaries();
         return true;
     }
     return false;
