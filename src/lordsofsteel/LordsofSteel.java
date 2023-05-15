@@ -67,19 +67,21 @@ public class LordsofSteel {
     
     private static void agregaPersonatge(ArrayList<Personatge> personatges){
         int categoria;
+        do{
         System.out.println("Introdueix la categoria del personatge: ");
-        System.out.println("1: Nan /n"
-                + "2: Humá /n"
-                + "3: Mitjà/n"
-                + "4: Maia");
+        System.out.println("1: Nan");
+        System.out.println("2: Humá ");
+        System.out.println("3: Mitjà");
+        System.out.println("4: Maia");
         categoria = sc.nextInt();
-        
+        }while(categoria>0||categoria<5);
         int devocion;
+        do{
         System.out.println("Introdueix la devoció del personatge: ");
         System.out.println("1: Ordre o 2: Caos");
         devocion = sc.nextInt();
-        
-        
+        sc.nextLine();
+        }while(devocion>0||devocion<3);
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
         sc.nextLine();
@@ -102,9 +104,27 @@ public class LordsofSteel {
                 System.out.println("Assegura't de repartir un total de 60 punts entre les estadístiques primàries: força, destresa, constitució i agilitat.");                
             }
         }while(totalPunts!=60);
-            System.out.println("Introdueix el nom de l'arma: ");
-            String nomArma = sc.nextLine();
-        
+        int arma;
+        String nomArma=" ";
+        do{
+            System.out.println("Introdueix una arma de l'arma: ");
+            System.out.println("1: Daga");
+            System.out.println("2: Espasa");
+            System.out.println("3: Martell");
+             arma = sc.nextInt();
+            sc.nextLine();
+            switch (arma){
+            case 1:
+                nomArma="Daga";
+            break;
+            case 2:
+                nomArma="Espasa";
+            break;
+            case 3:
+                nomArma="Martell";
+            break;
+        }
+        }while(arma>0||arma<4);
         switch (categoria) {
             case 1:
                 {
@@ -174,7 +194,7 @@ public class LordsofSteel {
             } else {
                 System.out.println("Ho sento, el número de personatge no és vàlid. Si us plau, seleccioneu un número de personatge vàlid per continuar.");
             }
-        } while(valido);
+        } while(!valido);
         System.out.println("");
     }
     
@@ -209,7 +229,7 @@ public class LordsofSteel {
             }else{
                 System.out.println("Ho sento, però el total de punts excedeix els punts disponibles. Si us plau, torna-ho a intentar distribuint els punts de manera que la suma total no superi el límit disponible.");
             }
-            }while(valido);
+            }while(!valido);
             
             personatge.setFOR(newFuerza);
             personatge.setCON(newConstitucion);
@@ -265,29 +285,24 @@ public class LordsofSteel {
                     valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
                     if (valor <= defensor.getPE()) { // Aconsegueix esquivar
                         System.out.println(defensor.getNOM()+" Esquiva!");
+                        if(defensor instanceof Caos){
+                        valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+                        if(valor<=((Caos) defensor).atacPAReduida(defensor)){
+                            atacant.setPS(atacant.getPS()-defensor.getPD());
+                        }
+                    }
                     }else if(valor > defensor.getPE()){//no Aconsegueix esquivar
                         defensor.setPS(defensor.getPS() - atacant.getPD());
+                        if(atacant instanceof Ordre){
+                            ((Ordre) atacant).restaurarPS(atacant);
+                        }
                     }
                 }else if(valor > atacant.getPA()){
                     System.out.println(atacant.getNOM()+" no Ataca!");
                 }
-            // Final ronda
             Personatge aux = atacant;
             atacant  = defensor;
             defensor = aux;
-            valor =  dau1.llencar() + dau2.llencar() + dau3.llencar();        
-            System.out.println("Valor daus: " + valor);
-            if (valor <= atacant.getPA()) { // Atacant ataca
-                System.out.println(atacant.getNOM()+" Ataca!");
-                valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-                if (valor <= defensor.getPE()) { // Aconsegueix esquivar
-                    System.out.println(defensor.getNOM()+" Esquiva!");
-                }else if(valor > defensor.getPE()){//no Aconsegueix esquivar
-                    defensor.setPS(defensor.getPS() - atacant.getPD());
-                }
-            }else if(valor > atacant.getPA()){
-                System.out.println(atacant.getNOM()+" no Ataca!");
-            }
         }while(atacant.PS>=0 || defensor.PS>=0);
         if(atacant.PS<=0){
             System.out.println(defensor.getNOM()+" ha guañat.");
@@ -302,8 +317,16 @@ public class LordsofSteel {
                 System.out.println(atacant.getNOM()+" Puja de nivell");   
             }
         }
-        atacant.setPS(atacant.getCON()+atacant.getFOR());
-        defensor.setPS(defensor.getCON()+defensor.getFOR());
+        if(atacant instanceof Huma){
+        atacant.setPS(atacant.getCON()+atacant.getFOR()+atacant.getINT());
+        }else{
+            atacant.setPS(atacant.getCON()+atacant.getFOR());
+        }
+        if(defensor instanceof Huma){
+        defensor.setPS(defensor.getCON()+defensor.getFOR()+defensor.getINT());
+        }else{
+            defensor.setPS(defensor.getCON()+defensor.getFOR());
+        }
     }
     
 }

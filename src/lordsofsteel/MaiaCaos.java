@@ -15,16 +15,9 @@ public class MaiaCaos extends Maia implements Caos {
     }
 
     @Override
-    public boolean atacPAReduida(int valor) {
-        Dau dau1 = new Dau();
-        Dau dau2 = new Dau();
-        Dau dau3 = new Dau();
-        int valor2 = dau1.llencar() + dau2.llencar() + dau3.llencar();
-        if(valor<valor2){
-            return true;
-        }else 
-            return false;
-            
+    public int atacPAReduida(Personatge personatge) {
+        int paReduida = (personatge.getPA()/2);
+        return paReduida;
     }
 
 }

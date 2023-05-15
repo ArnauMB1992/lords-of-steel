@@ -15,8 +15,9 @@ public class HumaOrdre extends Huma implements Ordre{
     }
         
     
+    @Override
     public void restaurarPS(Personatge personatge){
-        int puntSalutInicials = personatge.getCON()+personatge.getFOR();
+        int puntSalutInicials = personatge.getCON()+personatge.getFOR()+personatge.getINT();
         int puntSalut = personatge.getPS();
         int puntSalutRestants = (int)(puntSalutInicials*0.1);
         puntSalut += puntSalutRestants;
