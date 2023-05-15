@@ -37,11 +37,11 @@ public class LordsofSteel {
         System.out.println("**__________________**");
         System.out.print("Tria opció [1-5]: ");
         
-        String entrada = sc.nextLine();
+         opcio = sc.nextInt();
         
         // Només hem d'arribar aquí si estem segurs
         // que l'opció triada és un enter entre 1-5
-        opcio = Integer.parseInt(entrada);
+        //opcio = Integer.parseInt(entrada);
               
         switch (opcio) {
             case 1:
@@ -74,17 +74,16 @@ public class LordsofSteel {
         System.out.println("3: Mitjà");
         System.out.println("4: Maia");
         categoria = sc.nextInt();
-        }while(categoria>0||categoria<5);
+        }while(categoria>5||categoria<0);
         int devocion;
         do{
         System.out.println("Introdueix la devoció del personatge: ");
         System.out.println("1: Ordre o 2: Caos");
         devocion = sc.nextInt();
         sc.nextLine();
-        }while(devocion>0||devocion<3);
+        }while(devocion>3||devocion<0);
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
-        sc.nextLine();
         int fuerza, constitucion, velocidad, inteligencia, suerte, totalPunts;
         do{
             System.out.println("Reparteix 60 punts entre les estadístiques primàries:");
@@ -124,7 +123,7 @@ public class LordsofSteel {
                 nomArma="Martell";
             break;
         }
-        }while(arma>0||arma<4);
+        }while(arma>4||arma<0);
         switch (categoria) {
             case 1:
                 {
@@ -183,7 +182,7 @@ public class LordsofSteel {
         }
         System.out.println("-----------------------------------");
         boolean valido = false;
-        do{
+//        do{
             System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
             int seleccio = sc.nextInt() -1;
 
@@ -194,7 +193,7 @@ public class LordsofSteel {
             } else {
                 System.out.println("Ho sento, el número de personatge no és vàlid. Si us plau, seleccioneu un número de personatge vàlid per continuar.");
             }
-        } while(!valido);
+//        } while(!valido);
         System.out.println("");
     }
     
@@ -205,12 +204,14 @@ public class LordsofSteel {
         }
         System.out.println("-----------------------------------");
         boolean valido = false;
-        System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
+        System.out.println("Si us plau, seleccioneu el número del personatge que voleu modificar: ");
         int seleccio = sc.nextInt() -1;
         if(seleccio>=0 && seleccio<personatges.size()){
             Personatge personatge = personatges.get(seleccio);
             System.out.println("Estadístiques actuals del personatge:");
-            System.out.println(personatge);
+            System.out.println("Nom: "+personatge.getNOM()+" Força: "+personatge.getFOR()+" Constitució: "+personatge.getCON()+
+                    " Velocitat: "+personatge.getVEL()+" Intel·ligència: "+personatge.getINT()+
+                    " Sort: "+personatge.getSOR());
             int newFuerza, newConstitucion, newVelocidad, newInteligencia, newSuerte;
             do{
                 System.out.println("Introdueix el nou valor de Força:");
@@ -252,12 +253,32 @@ public class LordsofSteel {
                 if (!seleccionats[i]) {
                     String tipus = "";
                     if (personatges.get(i) instanceof Nan)
+                        if(personatges.get(i) instanceof NanOrdre){
+                            tipus = "NanOrdre";
+                        }else if(personatges.get(i) instanceof NanCaos){
+                            tipus = "NanCaos";
+                        }else
                         tipus = "Nan";
                     else if (personatges.get(i) instanceof Huma)
+                        if(personatges.get(i) instanceof HumaOrdre){
+                            tipus = "HumaOrdre";
+                        }else if(personatges.get(i) instanceof HumaCaos){
+                            tipus = "HumaCaos";
+                        }else
                         tipus = "Huma";
-                    else if (personatges.get(i) instanceof Mitja)
+                    else if (personatges.get(i) instanceof Mitja)                       
+                        if(personatges.get(i) instanceof MitjaOrdre){
+                            tipus = "MitjaOrdre";
+                        }else if(personatges.get(i) instanceof MitjaCaos){
+                            tipus = "MitjaCaos";
+                        }else
                         tipus = "Mitja";
                     else if (personatges.get(i) instanceof Maia)
+                        if(personatges.get(i) instanceof MaiaOrdre){
+                            tipus = "MaiaOrdre";
+                        }else if(personatges.get(i) instanceof MaiaCaos){
+                            tipus = "MaiaCaos";
+                        }else
                         tipus = "Maia";
 
                     System.out.printf("%d %s (%s)\n",(i+1),personatges.get(i).getNOM(),
@@ -288,6 +309,7 @@ public class LordsofSteel {
                         if(defensor instanceof Caos){
                         valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
                         if(valor<=((Caos) defensor).atacPAReduida(defensor)){
+                            System.out.println("Contraataca!");
                             atacant.setPS(atacant.getPS()-defensor.getPD());
                         }
                     }
