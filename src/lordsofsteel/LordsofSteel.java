@@ -80,7 +80,6 @@ public class LordsofSteel {
         System.out.println("Introdueix la devoció del personatge: ");
         System.out.println("1: Ordre o 2: Caos");
         devocion = leerEnteroValido();
-        sc.nextLine();
         }while(devocion>3||devocion<0);
         System.out.println("Introdueix el nom del personatge: ");
         String nom=sc.nextLine();
@@ -111,7 +110,7 @@ public class LordsofSteel {
             System.out.println("2: Espasa");
             System.out.println("3: Martell");
              arma = leerEnteroValido();
-            sc.nextLine();
+            
             switch (arma){
             case 1:
                 nomArma="Daga";
