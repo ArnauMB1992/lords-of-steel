@@ -37,7 +37,7 @@ public class LordsofSteel {
         System.out.println("**__________________**");
         System.out.print("Tria opció [1-5]: ");
         
-         opcio = sc.nextInt();
+         opcio = leerEnteroValido();
         
         // Només hem d'arribar aquí si estem segurs
         // que l'opció triada és un enter entre 1-5
@@ -73,13 +73,13 @@ public class LordsofSteel {
         System.out.println("2: Humá ");
         System.out.println("3: Mitjà");
         System.out.println("4: Maia");
-        categoria = sc.nextInt();
+        categoria =leerEnteroValido();
         }while(categoria>5||categoria<0);
         int devocion;
         do{
         System.out.println("Introdueix la devoció del personatge: ");
         System.out.println("1: Ordre o 2: Caos");
-        devocion = sc.nextInt();
+        devocion = leerEnteroValido();
         sc.nextLine();
         }while(devocion>3||devocion<0);
         System.out.println("Introdueix el nom del personatge: ");
@@ -88,15 +88,15 @@ public class LordsofSteel {
         do{
             System.out.println("Reparteix 60 punts entre les estadístiques primàries:");
             System.out.println("Força: ");
-            fuerza = sc.nextInt();
+            fuerza = leerEnteroValido();
             System.out.println("Constitució: ");
-            constitucion = sc.nextInt();
+            constitucion = leerEnteroValido();
             System.out.println("Velocitat: ");
-            velocidad = sc.nextInt();
+            velocidad = leerEnteroValido();
             System.out.println("Intel·ligència: ");
-            inteligencia = sc.nextInt();
+            inteligencia = leerEnteroValido();
             System.out.println("Sort: ");
-            suerte = sc.nextInt();
+            suerte = leerEnteroValido();
             
             totalPunts = fuerza+constitucion+velocidad+inteligencia+suerte;
             if (totalPunts!=60){
@@ -110,7 +110,7 @@ public class LordsofSteel {
             System.out.println("1: Daga");
             System.out.println("2: Espasa");
             System.out.println("3: Martell");
-             arma = sc.nextInt();
+             arma = leerEnteroValido();
             sc.nextLine();
             switch (arma){
             case 1:
@@ -184,7 +184,7 @@ public class LordsofSteel {
         boolean valido = false;
 //        do{
             System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
-            int seleccio = sc.nextInt() -1;
+            int seleccio = leerEnteroValido() -1;
 
             if(seleccio>=0 && seleccio<personatges.size()){
                 personatges.remove(seleccio);
@@ -205,7 +205,7 @@ public class LordsofSteel {
         System.out.println("-----------------------------------");
         boolean valido = false;
         System.out.println("Si us plau, seleccioneu el número del personatge que voleu modificar: ");
-        int seleccio = sc.nextInt() -1;
+        int seleccio = leerEnteroValido() -1;
         if(seleccio>=0 && seleccio<personatges.size()){
             Personatge personatge = personatges.get(seleccio);
             System.out.println("Estadístiques actuals del personatge:");
@@ -215,15 +215,15 @@ public class LordsofSteel {
             int newFuerza, newConstitucion, newVelocidad, newInteligencia, newSuerte;
             do{
                 System.out.println("Introdueix el nou valor de Força:");
-                newFuerza=sc.nextInt();
+                newFuerza=leerEnteroValido();
                 System.out.println("Introdueix el nou valor de Constitució:");
-                newConstitucion=sc.nextInt();
+                newConstitucion=leerEnteroValido();
                 System.out.println("Introdueix el nou valor de Velocitat:");
-                newVelocidad=sc.nextInt();
+                newVelocidad=leerEnteroValido();
                 System.out.println("Introdueix el nou valor de Intel·ligència:");
-                newInteligencia=sc.nextInt();
+                newInteligencia=leerEnteroValido();
                 System.out.println("Introdueix el nou valor de Sort:");
-                newSuerte=sc.nextInt();
+                newSuerte=leerEnteroValido();
             int totalPunts = newFuerza+newConstitucion+newVelocidad+newInteligencia+newSuerte;
             if(totalPunts <=60){    
                 valido = true;
@@ -286,7 +286,7 @@ public class LordsofSteel {
                 }            
             }
             System.out.print("\nTria un personatge " + selec + ": ");
-            int opcio = sc.nextInt();
+            int opcio =leerEnteroValido();
             seleccionats[opcio-1] = true;
             lluitadors[selec-1] = personatges.get(opcio-1);
             System.out.println("Personatge triat: " + 
@@ -309,7 +309,7 @@ public class LordsofSteel {
                         if(defensor instanceof Caos){
                         valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
                         if(valor<=((Caos) defensor).atacPAReduida(defensor)){
-                            System.out.println("Contraataca!");
+                            System.out.println(defensor.getNOM()+"Contraataca!");
                             atacant.setPS(atacant.getPS()-defensor.getPD());
                         }
                     }
@@ -348,6 +348,22 @@ public class LordsofSteel {
         defensor.setPS(defensor.getCON()+defensor.getFOR()+defensor.getINT());
         }else{
             defensor.setPS(defensor.getCON()+defensor.getFOR());
+        }
+    }
+        
+        
+    public static int leerEnteroValido() {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            if (sc.hasNextInt()) {
+                int num = sc.nextInt();
+                return num;
+            } else {
+                System.out.println("Error: Opción no valida.");
+                sc.next(); 
+                System.out.println("Prueba de nuevo: ");
+            }
         }
     }
     
