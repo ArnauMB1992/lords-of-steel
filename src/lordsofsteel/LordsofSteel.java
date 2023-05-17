@@ -12,7 +12,7 @@ import lordsofsteel.*;
  * @author ArnauMB
  */
 public class LordsofSteel {
-    static Scanner sc = new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         Nan n1 = new Nan("Tirion",8,6, 13,16,16,new Armes("Daga"));        
         Huma h1 = new Huma("Luis",13,16,6,10,6,new Armes("Espasa"));
@@ -352,7 +352,6 @@ public class LordsofSteel {
         
         
     public static int leerEnteroValido() {
-        Scanner sc = new Scanner(System.in);
 
         while (true) {
             if (sc.hasNextInt()) {
@@ -361,7 +360,7 @@ public class LordsofSteel {
             } else {
                 System.out.println("Error: Opción no valida.");
                 sc.next(); 
-                System.out.println("Prueba de nuevo: ");
+                System.out.print("Prueba de nuevo: ");
             }
         }
     }
