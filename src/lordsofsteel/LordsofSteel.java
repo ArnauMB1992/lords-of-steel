@@ -180,19 +180,15 @@ public class LordsofSteel {
             System.out.println((i+1)+ ". "+ personatges.get(i).getNOM());            
         }
         System.out.println("-----------------------------------");
-        boolean valido = false;
-//        do{
             System.out.println("Si us plau, seleccioneu el número del personatge que voleu eliminar: ");
             int seleccio = leerEnteroValido() -1;
 
             if(seleccio>=0 && seleccio<personatges.size()){
                 personatges.remove(seleccio);
                 System.out.println("S'ha eliminat el personatge amb èxit.");
-                valido=true;
             } else {
                 System.out.println("Ho sento, el número de personatge no és vàlid. Si us plau, seleccioneu un número de personatge vàlid per continuar.");
             }
-//        } while(!valido);
         System.out.println("");
     }
     
